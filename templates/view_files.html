@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Files</title>
+</head>
+<body>
+    <h1>View Files</h1>
+    <form action="{{ url_for('view_files') }}" method="get">
+        <label for="uploader">Filter by Uploader:</label>
+        <select name="uploader" id="uploader">
+            <option value="">All Uploaders</option>
+            <option value="admin">admin</option>
+            <option value="user1">user1</option>
+            <option value="user2">user2</option>
+            <option value="user3">user3</option>
+            <option value="user4">user4</option>
+            
+            <!-- Add more options as needed -->
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+    <table border="1">
+        <tr>
+            <th>Reason</th>
+            <th>Changes</th>
+            <th>Filename</th>
+            <th>upload_datetime</th>
+            <th>Uploader</th>
+        </tr>
+        {% for file in files %}
+        <tr>
+            <td>{{ file[1] }}</td>
+            <td>{{ file[2] }}</td>
+            <td>{{ file[3] }}</td>
+            <td>{{ file[4] }}</td>
+            <td>{{ file[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
+
